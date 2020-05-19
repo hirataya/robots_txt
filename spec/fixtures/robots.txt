@@ -1,0 +1,15 @@
+User-Agent: *
+Disallow: /protected/
+Allow: /protected/public/
+Disallow: /directory/$
+Disallow: /cgi-*/*.cgi$
+Disallow: /ambiguous
+Allow: /ambiguous
+Disallow: /special-%24
+Disallow: /special-%2a-character
+Disallow: /special-%2A-%24
+
+User-Agent: RisingHeart
+User-Agent: Bardiche
+Disallow: /
+Allow: /public/
