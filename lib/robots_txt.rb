@@ -1,4 +1,5 @@
 require "uri"
+require "cgi"
 require "robots_txt/version"
 
 class RobotsTxt
@@ -33,7 +34,10 @@ class RobotsTxt
       end
 
       most_matched_permissions.uniq!
-      allowed = most_matched_permissions.length == 1 ? most_matched_permissions.first == :allow : true
+
+      if most_matched_permissions.any?
+        allowed = most_matched_permissions.length == 1 ? most_matched_permissions.first == :allow : true
+      end
     end
 
     allowed

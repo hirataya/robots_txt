@@ -13,3 +13,7 @@ User-Agent: RisingHeart
 User-Agent: Bardiche
 Disallow: /
 Allow: /public/
+
+Sitemap: https://www.nanoha.com/sitemap.xml
+Sitemap: https://www.nanoha.com/sitemap_goods.xml
+
