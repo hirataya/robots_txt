@@ -84,10 +84,6 @@ class RobotsTxt
   end
 
   def pattern_to_regex(pattern)
-    Regexp.compile(
-      pattern.gsub(/(^)|(%[0-9a-fA-F]{2})|(\*)|(.)/) {
-        $1 ? "^" : $2 ? Regexp.escape(CGI.unescape($2)) : $3 ? ".*" : $4
-      }
-    )
+    Regexp.compile("^" + pattern.gsub(/(%[0-9a-fA-F]{2})|(\*)|(.)/) { $1 ? Regexp.escape(CGI.unescape($1)) : $2 ? ".*" : $3 })
   end
 end
