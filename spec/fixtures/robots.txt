@@ -8,11 +8,13 @@ Allow: /ambiguous
 Disallow: /special-%24
 Disallow: /special-%2a-character
 Disallow: /special-%2A-%24
+Crawl-Delay: 100
 
 User-Agent: RisingHeart
 User-Agent: Bardiche
 Disallow: /
 Allow: /public/
+Crawl-Delay: 200
 
 Sitemap: https://www.nanoha.com/sitemap.xml
 Sitemap: https://www.nanoha.com/sitemap_goods.xml

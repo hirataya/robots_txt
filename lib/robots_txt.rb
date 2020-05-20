@@ -43,6 +43,19 @@ class RobotsTxt
     allowed
   end
 
+  def crawl_delay(user_agent = self.user_agent)
+    delay = nil
+
+    self.groups.each do |group|
+      next if !user_agent.match(group[:user_agent]) or !group[:crawl_delay]
+      if delay.nil? or delay < group[:crawl_delay]
+        delay = group[:crawl_delay]
+      end
+    end
+
+    delay
+  end
+
   private
 
   def parse_robots_txt(robots_txt)
@@ -69,7 +82,7 @@ class RobotsTxt
         when :allow, :disallow
           parsed[:path] << [key, pattern_to_regex(value)]
         when :crawl_delay
-          parsed[:crawl_delay] = value
+          parsed[:crawl_delay] = value.to_i
         else
           parsed[:others][key] ||= []
           parsed[:others][key] << value
