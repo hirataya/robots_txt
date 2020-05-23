@@ -58,6 +58,23 @@ class RobotsTxt
     delay
   end
 
+  class << self
+    def load(txt)
+      RobotsTxt.new(txt || "")
+    end
+
+    def dump(obj)
+      case obj
+      when String
+        obj
+      when self
+        obj.txt
+      else
+        raise ArgumentError, "Could not dump #{obj.inspect}"
+      end
+    end
+  end
+
   private
 
   def parse_robots_txt(robots_txt)
