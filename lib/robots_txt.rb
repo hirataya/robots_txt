@@ -3,10 +3,12 @@ require "cgi"
 require "robots_txt/version"
 
 class RobotsTxt
+  attr_accessor :txt
   attr_accessor :user_agent
   attr_accessor :groups
 
   def initialize(txt, user_agent = "")
+    self.txt = txt
     self.user_agent = user_agent
     self.groups = parse_robots_txt(txt)
   end
